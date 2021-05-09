@@ -5,7 +5,11 @@ layersdir=$1
 
 echo -e "Deno Buildpack: \n`deno --version`"
 echo "main: ${MAIN}"
-echo "tsconfig: ${TSCONFIG_FLAG}"
+
+if [[ -f tsconfig.json ]]; then
+  export TSCONFIG_FLAG="-c tsconfig.json"
+  echo "---> Using TypeScript config ${TSCONFIG_FLAG}"
+fi
 deno bundle ${TSCONFIG_FLAG} ${MAIN} > bundle.js
 
 cat > "$layersdir/launch.toml" <<EOL
