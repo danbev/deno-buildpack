@@ -113,7 +113,7 @@ as this will not be neccessary at runtime.
 After the image has been created we can then run it using the following command:
 ```console
 $ docker run -t deno-example
-Welcome to Deno(7:2) 🦕
+Welcome to Deno(14:23) 🦕
 Does /etc/passwd exist: true
 ```
 
