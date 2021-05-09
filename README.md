@@ -41,16 +41,16 @@ Running the creator on OS linux with:
 Container Settings:
   Args: /cnb/lifecycle/creator -daemon -launch-cache /launch-cache -log-level debug -cache-dir /cache -run-image dbevenius/ubi8-s2i-deno:0.2 -process-type web deno-example
   System Envs: CNB_PLATFORM_API=0.4
-  Image: pack.local/builder/7a75716274666c746278:latest
+  Image: pack.local/builder/697675676c616a766d76:latest
   User: root
   Labels: map[author:pack]
 Host Settings:
-  Binds: pack-cache-library_deno-example_latest-4ac570e96879.build:/cache /var/run/docker.sock:/var/run/docker.sock pack-cache-library_deno-example_latest-4ac570e96879.launch:/launch-cache pack-layers-houewnvqjw:/layers pack-app-ymmfnzfhtw:/workspace
+  Binds: pack-cache-library_deno-example_latest-4ac570e96879.build:/cache /var/run/docker.sock:/var/run/docker.sock pack-cache-library_deno-example_latest-4ac570e96879.launch:/launch-cache pack-layers-vjpuwalrxg:/layers pack-app-ewdfbfujwy:/workspace
   Network Mode: 
 ===> DETECTING
 ======== Output: danbev.buildpack.deno@0.0.1 ========
 Detecting Deno application...
----> Using TypeScript config 
+---> Using TypeScript config -c tsconfig.json
 ======== Results ========
 pass: danbev.buildpack.deno@0.0.1
 Resolving plan... (try #1)
@@ -59,17 +59,18 @@ danbev.buildpack.deno 0.0.1
 Analyzing image "ace00a2c29123cd769ba06a95777a9a8c11c06d59decdcdae67cb6e58b2b28f3"
 ===> RESTORING
 ===> BUILDING
----> Deno Buildpack:\ndeno 1.5.1
+Deno Buildpack: 
+deno 1.5.1
 v8 8.7.220.3
 typescript 4.0.3
 main: src/welcome.ts
 tsconfig: 
 Bundle file:///workspace/src/welcome.ts
-Download https://deno.land/std@0.74.0/fs/exists.ts
 Download https://deno.land/x/date_fns@v2.15.0/getMinutes/index.js
+Download https://deno.land/std@0.74.0/fs/exists.ts
 Download https://deno.land/x/date_fns@v2.15.0/getHours/index.js
-Download https://deno.land/x/date_fns@v2.15.0/_lib/requiredArgs/index.js
 Download https://deno.land/x/date_fns@v2.15.0/toDate/index.js
+Download https://deno.land/x/date_fns@v2.15.0/_lib/requiredArgs/index.js
 Check file:///workspace/src/welcome.ts
 ===> EXPORTING
 no project metadata found at path 'project-metadata.toml', project metadata will not be exported
@@ -100,6 +101,7 @@ Setting ENTRYPOINT: '/cnb/process/web'
 
 *** Image ID: ace00a2c29123cd769ba06a95777a9a8c11c06d59decdcdae67cb6e58b2b28f3
 Successfully built image deno-example
+
 ```
 During the detaction phase this buildpack will detect TypeScript configuration
 file and use that during the buildphase.
