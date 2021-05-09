@@ -1,0 +1,12 @@
+# Buildpack API version
+api = "0.2"
+
+# Buildpack ID and metadata
+[buildpack]
+id = "danbev.buildpack.deno"
+version = "0.0.1"
+name = "Deno Buildpack"
+
+# Stacks that the buildpack will work with
+[[stacks]]
+id = "danbev.stacks.ubi8-deno"

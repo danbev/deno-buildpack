@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+layersdir=$1
+
+echo "---> Deno Buildpack:\n`deno --version`"
+echo "main: ${MAIN}"
+echo "tsconfig: ${TSCONFIG_FLAG}"
+deno bundle ${TSCONFIG_FLAG} ${MAIN} > bundle.js
+
+cat > "$layersdir/launch.toml" <<EOL
+[[processes]]
+type = "web"
+command = "deno run ${PERMISSIONS} bundle.js"
+EOL

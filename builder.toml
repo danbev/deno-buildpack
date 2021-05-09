@@ -1,0 +1,18 @@
+# Buildpacks to include in builder
+[[buildpacks]]
+uri = "."
+
+# Order used for detection
+[[order]]
+    [[order.group]]
+    id = "danbev.buildpack.deno"
+    version = "0.0.1"
+
+# Stack that will be used by the builder
+[stack]
+id = "danbev.stacks.ubi8-deno"
+# This image is used at runtime
+run-image = "dbevenius/ubi8-s2i-deno:0.2"
+# This image is used at build-time
+build-image = "dbevenius/ubi8-s2i-deno:0.2"
+
