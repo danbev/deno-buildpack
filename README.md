@@ -25,7 +25,6 @@ The following will use the [demo-example](https://github.com/danbev/deno-example
 
 ```console
 $ pack -v build deno-example --builder dbevenius:deno --path ../deno-example -e MAIN="src/welcome.ts" -e PERMISSIONS="--allow-read=/etc"
-$ pack -v build deno-example --builder dbevenius:deno --path ../deno-example -e MAIN="src/welcome.ts" -e PERMISSIONS="--allow-read=/etc"
 Builder dbevenius:deno is trusted
 Selected run image dbevenius/ubi8-s2i-deno:0.2
 Pulling image dbevenius/ubi8-s2i-deno:0.2
