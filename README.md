@@ -19,7 +19,7 @@ Optionally trust this builder:
 $ pack config trusted-builders add dbevenius:deno
 ```
 
-### Usage in this buildpack
+### Usage
 
 The following will use the [demo-example](https://github.com/danbev/deno-example).
 
@@ -109,6 +109,8 @@ file and use that during the buildphase.
 During the build phase buildpack will use Deno's `bundle` command to compile the
 TypeScript into JavaScript to make the execution of the final application faster
 as this will not be neccessary at runtime.
+
+### Running the build image
 
 After the image has been created we can then run it using the following command:
 ```console
