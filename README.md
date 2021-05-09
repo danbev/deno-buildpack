@@ -116,20 +116,3 @@ $ docker run -t deno-example
 Welcome to Deno(14:23) 🦕
 Does /etc/passwd exist: true
 ```
-
-### Troubleshooting
-On Fedora 31 I ran into the following issue when running the `pack build` command
-and I'd made sure that the current user was a member of the `docker` group and
-in addition verified that this change was made effective using both `newgrp` and
-also logging in again but none worked. I finally found the following to work.
-```console
-  Network Mode: 
-ERROR: failed to initialize docker client: failed to connect to docker socket: dial unix /var/run/docker.sock: connect: permission denied
-ERROR: failed to build: executing lifecycle: failed with status code: 1
-```
-```console
-$ getenforce
-Enforcing
-$ sudo setenforce Permissive
-```
-After this change I was able to use the `pack` command.
