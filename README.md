@@ -2,6 +2,14 @@
 
 Build pack to use Deno with Red Hat Universal Base Images (UBI).
 
+The idea is that one can take an existing Deno project source and package it
+using the buildpack `pack` command using the builder that is part of this
+project. 
+
+During the build phase buildpack will use Deno's `bundle` command to compile the
+TypeScript into JavaScript to make the execution of the final application faster
+as this step will not be neccessary at runtime.
+
 
 ### Create/Update the builder
 
@@ -103,14 +111,8 @@ Setting ENTRYPOINT: '/cnb/process/web'
 Successfully built image deno-example
 
 ```
-During the detaction phase this buildpack will detect TypeScript configuration
-file and use that during the buildphase.
 
-During the build phase buildpack will use Deno's `bundle` command to compile the
-TypeScript into JavaScript to make the execution of the final application faster
-as this will not be neccessary at runtime.
-
-### Running the build image
+### Running the built image
 
 After the image has been created we can then run it using the following command:
 ```console
