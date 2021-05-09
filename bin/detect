@@ -4,6 +4,6 @@ set -eo pipefail
 TSCONFIG_FLAG=""
 echo "Detecting Deno application..."
 if [[ -f tsconfig.json ]]; then
-  TSCONFIG_FLAG="-c ${TSCONFIG}"
-  echo "---> Using TypeScript config ${TSCONFIG}"
+  TSCONFIG_FLAG="-c tsconfig.json"
+  echo "---> Using TypeScript config ${TSCONFIG_FLAG}"
 fi
